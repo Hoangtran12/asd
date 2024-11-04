@@ -15,6 +15,11 @@ Make sure you have the following installed on your machine:
    ```plaintext
    DB_URL="provider://username:password@localhost:port/database"
 
+OR: `cp .env.example .env` and change the URL
+
+3. `npm i` or `npm install`: Initializes your project by downloading all the required packages listed in your package.json file. It creates a node_modules directory where all the dependencies will be stored.
+4. `npm run seed-db`: Runs a script defined to seed your database with initial data. The exact behavior will depend on how the seed-db script is defined, but it often involves running a script that inserts sample data into your database tables.
+
 ## Commands (to use during development)
 - `npm run dev`: Start the development server.
 - `npx prisma studio`: Start the database server and interact with your data in Prisma projects.
