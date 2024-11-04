@@ -18,7 +18,9 @@ Make sure you have the following installed on your machine:
 OR: `cp .env.example .env` and change the URL
 
 3. `npm i` or `npm install`: Initializes your project by downloading all the required packages listed in your package.json file. It creates a node_modules directory where all the dependencies will be stored.
-4. `npm run seed-db`: Runs a script defined to seed your database with initial data. The exact behavior will depend on how the seed-db script is defined, but it often involves running a script that inserts sample data into your database tables.
+4. `npm run prisma:generate`: Re-generate the prisma client. This will update the types in `@prisma/client` to reflect any changes in the schema.
+5. `npm run prisma:migrate`: Create prisma migration files. Should be run after changing the schema in `schema/prisma.schema`.
+6. `npm run seed-db`: Runs a script defined to seed your database with initial data. The exact behavior will depend on how the seed-db script is defined, but it often involves running a script that inserts sample data into your database tables.
 
 ## Commands (to use during development)
 - `npm run dev`: Start the development server.
