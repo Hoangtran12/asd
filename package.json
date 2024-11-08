@@ -1,40 +1,83 @@
 {
-  "name": "carlisting",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run prisma:generate && next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest run",
     "prisma:migrate": "dotenv -e .env -- npx prisma migrate dev",
     "prisma:generate": "npx prisma generate",
     "prisma:deploy": "dotenv -e .env -- npx prisma migrate deploy",
+    "prepare": "husky",
     "seed-db": "dotenv -e .env -- node ./prisma/seed.ts"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.1.0",
-    "@prisma/client": "^5.21.1",
-    "csv": "^6.3.10",
-    "next": "15.0.2",
-    "pg": "^8.13.1",
-    "react": "19.0.0-rc-02c0e824-20241028",
-    "react-dom": "19.0.0-rc-02c0e824-20241028"
+    "@prisma/client": "^5.22.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@reduxjs/toolkit": "^2.3.0",
+    "@tanstack/react-query": "^5.59.20",
+    "@vercel/kv": "^3.0.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "gh-pages": "^6.2.0",
+    "lucide-react": "^0.454.0",
+    "next": "^15.0.3",
+    "npm-check-updates": "^17.1.10",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.3.0",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^3.1.0",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
-    "@types/node": "^22.8.6",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@faker-js/faker": "^9.2.0",
+    "@tanstack/eslint-plugin-query": "^5.59.20",
+    "@testing-library/react": "^16.0.1",
+    "@types/node": "^22.9.0",
+    "@types/react": "18.3.12",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "csv": "^6.3.10",
     "dotenv-cli": "^7.4.2",
-    "eslint": "^9",
-    "eslint-config-next": "15.0.2",
+    "eslint": "^9.14.0",
+    "eslint-config-next": "15.0.3",
+    "eslint-plugin-unicorn": "^56.0.0",
+    "husky": "^9.1.6",
+    "jsdom": "^25.0.1",
     "postcss": "^8",
-    "prisma": "^5.21.1",
+    "prisma": "^5.22.0",
     "tailwindcss": "^3.4.14",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
   },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "next/core-web-vitals",
+      "plugin:unicorn/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "unicorn/prefer-module": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "unicorn/no-array-callback-reference": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-nested-ternary": "off"
+    },
+    "root": true
   }
 }
